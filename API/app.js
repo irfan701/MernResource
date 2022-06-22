@@ -2,7 +2,7 @@ const express=require("express");
 const router = require("./src/routes/api");
 
 const app=new express();
-
+const bodyParser=require("body-parser")
 //Security Middleware Import
 
 const rateLimit=require("express-rate-limit")
@@ -11,6 +11,7 @@ const mongoSanitize=require("express-mongo-sanitize")
 const xss=require("xss-clean")
 const hpp=require("hpp")
 const cors=require("cors")
+
 const mongoose=require("mongoose")
 //Security Middleware Implement
 
@@ -20,6 +21,7 @@ app.use(mongoSanitize())
 app.use(xss())
 app.use(hpp())
 
+app.use(bodyParser.json());
 
 //Request Rate Limiting
 
