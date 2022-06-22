@@ -11,8 +11,7 @@ const mongoSanitize=require("express-mongo-sanitize")
 const xss=require("xss-clean")
 const hpp=require("hpp")
 const cors=require("cors")
-
-
+const mongoose=require("mongoose")
 //Security Middleware Implement
 
 app.use(cors())
@@ -34,8 +33,17 @@ const limiter = rateLimit({
 // Apply the rate limiting middleware to all requests
 app.use(limiter)
 
+//MONGO DB DATABASE CONNECTION
+
+let URI='mongodb://127.0.0.1:27017/schools'
+let OPTION={user:'',  pass:''}
 
 
+
+mongoose.connect(URI,OPTION,(error)=>{
+    console.log("Connection Success")
+    console.log(error)
+})
 
 
 app.use("/v1/api/",router)
