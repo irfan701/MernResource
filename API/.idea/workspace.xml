@@ -50,7 +50,9 @@
       <workItem from="1655559547630" duration="2150000" />
       <workItem from="1655897177027" duration="1926000" />
       <workItem from="1655900591028" duration="1771000" />
-      <workItem from="1655906244462" duration="1911000" />
+      <workItem from="1655906244462" duration="2794000" />
+      <workItem from="1655922089177" duration="3696000" />
+      <workItem from="1656016949713" duration="1474000" />
     </task>
     <servers />
   </component>
@@ -63,7 +65,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/models/StudentsModel.js</url>
           <line>8</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
