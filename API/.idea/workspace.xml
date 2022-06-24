@@ -52,22 +52,12 @@
       <workItem from="1655900591028" duration="1771000" />
       <workItem from="1655906244462" duration="2794000" />
       <workItem from="1655922089177" duration="3696000" />
-      <workItem from="1656016949713" duration="1474000" />
+      <workItem from="1656016949713" duration="3421000" />
+      <workItem from="1656069761134" duration="2639000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/models/StudentsModel.js</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
