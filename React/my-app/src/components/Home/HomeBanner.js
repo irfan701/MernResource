@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 
 const HomeBanner = (props) => {
 
@@ -6,6 +6,20 @@ const HomeBanner = (props) => {
 
     const NewColor=()=>{
         setColor("BLUE")
+    }
+
+    let UserName=useRef()
+    let Password=useRef();
+
+    const SubmitForm=()=>{
+       let a= UserName.current.value;
+       let b=Password.current.value;
+
+       let c=document.getElementById('user').value;
+
+       alert(a)
+        alert(b)
+        alert(c)
     }
 
     return (
@@ -26,7 +40,17 @@ const HomeBanner = (props) => {
         <p>STATE LESSON</p>
             <p>{color}</p>
             <button onClick={NewColor}>Change Color</button>
+
+            <hr/>
+            
+            <p>useRef (DOM MANIPULATION)</p>
+
+            <input ref={UserName} id="user" type="text" placeholder="User Name"/>
+            <input ref={Password} type="text" placeholder="Password"/>
+            <button onClick={SubmitForm}>Submit</button>
+
         </div>
+        
     );
 };
 
