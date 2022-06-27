@@ -1,0 +1,42 @@
+FRONTEND
+	npm install react-bootstrap bootstrap
+	npm install react-router-dom@6
+
+	npm install --save react-toastify
+	npm install axios
+	npm install moment --save
+	npm install react-icons --save
+	npm install sweetalert2
+	npm i react-bootstrap-sweetalert
+	npm install --save cleave.js
+	npm install localforage
+	npm install recharts
+	npm i --save react-code-input
+
+	npm i read-excel-file
+	npm i --save export-from-json
+	npm install --save html-to-image
+	npm install react-tooltip
+	npm install --save react-window
+
+PROBLEM :
+	npm install react-html-parser
+	npm install --save cogo-toast
+
+BACKEND
+
+	npm install express
+	npm i body-parser
+	npm i cors
+	npm i dotenv
+	npm i express-mongo-sanitize
+	npm i express-rate-limit
+	npm install helmet --save
+	npm i hpp
+	npm i jsonwebtoken
+	npm i xss-clean
+	npm i nodemon
+	npm i mongoose
+
+npm install
+769114100
