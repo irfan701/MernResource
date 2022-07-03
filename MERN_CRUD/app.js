@@ -38,22 +38,30 @@ app.use(limiter)
 
 //MONGO DB DATABASE CONNECTION
 
-let URI='mongodb://127.0.0.1:27017/schools'
-let OPTION={user:'',  pass:''}
+let URI='mongodb+srv://<username>:<password>@cluster0.hx69h.mongodb.net/crud?retryWrites=true&w=majority';
+let OPTION={user:'testuser123',  pass:'testuser123'}
 
-mongoose.connect(URL,OPTION,(error)=>{
+mongoose.connect(URI,OPTION,(error)=>{
     console.log("Connection Success")
     console.log(error)
 });
 
+// //UNDEFINED ROUTE
+//
+// app.route("*",(req,res)=>{
+//     res.status(404).json({status:"Fail",data:"Not Found"})
+// })
+
+//Routing Implementation
+app.use('/api/v1',router)
+
+
+
 //UNDEFINED ROUTE
 
 app.route("*",(req,res)=>{
-    res.status(404).json({status:"Fail",data:"Not Found"})
+    res.sendFile(path.resolve(__dirname,'client','build','index.html'))
 })
-
-
-app.use('api/v1',router)
 
 
 module.exports=app
