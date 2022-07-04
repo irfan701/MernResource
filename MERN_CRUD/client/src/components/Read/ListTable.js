@@ -1,10 +1,11 @@
 import React from 'react';
 
+
 const ListTable = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <h2>List Table</h2>
+        </>
     );
 };
 

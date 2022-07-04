@@ -1,10 +1,11 @@
 import React from 'react';
 
+
 const UpdateForm = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <h2>Update Form</h2>
+        </>
     );
 };
 

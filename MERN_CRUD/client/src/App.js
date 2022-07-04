@@ -1,22 +1,20 @@
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-     
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import AppNavBar from "./components/Common/AppNavBar";
+import {BrowserRouter} from "react-router-dom";
+import AppRoute from "./routes/AppRoute";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+
+const App = () => {
+    return (
+        <>
+            <BrowserRouter>
+                <AppNavBar/>
+                <AppRoute/>
+            </BrowserRouter>
+
+        </>
+    );
+};
 
 export default App;

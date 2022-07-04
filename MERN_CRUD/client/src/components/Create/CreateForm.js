@@ -1,10 +1,11 @@
 import React from 'react';
 
+
 const CreateForm = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <h2>Create Form</h2>
+        </>
     );
 };
 
