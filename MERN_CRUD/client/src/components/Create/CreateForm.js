@@ -1,5 +1,7 @@
 import React, {useRef} from 'react';
-import {ErrorToast, isEmpty} from "../../helper/ValidationHelper";
+import {SuccessToast,ErrorToast, isEmpty} from "../../helper/ValidationHelper";
+import {Create} from "../../api/CrudServices";
+
 
 
 const CreateForm = () => {
@@ -9,21 +11,28 @@ const CreateForm = () => {
     const SaveData = () => {
         let Product_Name = product_name.value;
         let Product_Code = product_code.value;
-        let Img = img.value;
+        let Product_Img = img.value;
         let Unit_Price = unit_price.value;
-        let Qty = qty.value;
+        let Product_Qty = qty.value;
         let Total_Price = total_price.value;
 
         //alert(Product_Name)
 
         if(isEmpty(Product_Name)) ErrorToast("Product Name Required")
         else if(isEmpty(Product_Code)) ErrorToast("Product Code Required")
-        else if(isEmpty(Img))ErrorToast("Product Image Required")
+        else if(isEmpty(Product_Img))ErrorToast("Product Image Required")
         else if(isEmpty(Unit_Price))ErrorToast("Product Unit Price Required")
-        else if(isEmpty(Qty))ErrorToast("Product Qty Required")
+        else if(isEmpty(Product_Qty))ErrorToast("Product Qty Required")
         else if(isEmpty(Total_Price))ErrorToast("Product Price Required")
         else{
 
+            Create(Product_Name, Product_Code, Product_Img, Unit_Price, Product_Qty, Total_Price).then (result =>{
+                    if(result===true){
+                       SuccessToast("Data Save Success")
+                    }else{
+                        ErrorToast("Request Failed Try Again!")
+                    }
+                })
         }
 
     }

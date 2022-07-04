@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const Create = (product_name, product_code, img, unit_price, qty, total_price) => {
-    let URL = '/api/v1/CreateData'
+export function Create(product_name, product_code, img, unit_price, qty, total_price){
+    let URL = "/api/v1/CreateData"
     let PostBody = {
         "product_name": product_name,
         "product_code": product_code,
@@ -10,7 +10,7 @@ export const Create = (product_name, product_code, img, unit_price, qty, total_p
         "qty": qty,
         "total_price": total_price
     }
-    return axios.post(URL, PostBody).then((res) => {
+    return axios.post(URL,PostBody).then((res) => {
         if (res.status === 200) {
             return true
         } else {
@@ -22,9 +22,9 @@ export const Create = (product_name, product_code, img, unit_price, qty, total_p
         return false
 
     })
-};
+}
 
-export default function Read() {
+export function Read() {
     let URL = '/api/v1/ReadData'
     return axios.get(URL).then((res) => {
 
@@ -39,7 +39,7 @@ export default function Read() {
     })
 }
 
-export function Update(id) {
+export function Update(id,product_name, product_code, img, unit_price, qty, total_price) {
     let URL = '/api/v1/UpdateData' + id
     let PostBody = {
         "product_name": product_name,

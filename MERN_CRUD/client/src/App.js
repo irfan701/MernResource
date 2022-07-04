@@ -3,7 +3,7 @@ import AppNavBar from "./components/Common/AppNavBar";
 import {BrowserRouter} from "react-router-dom";
 import AppRoute from "./routes/AppRoute";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 

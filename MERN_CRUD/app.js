@@ -2,28 +2,33 @@ const express=require('express')
 const router=require('./src/routes/api')
 
 const app=new express();
-const bodyParser=require('body-parser')
+const bodyParser=require('body-parser');
+const path=require('path')
 
 
 //Security Middleware Import
+
 const rateLimit=require('express-rate-limit')
-const cors=require('cors')
 const helmet=require('helmet')
 const hpp=require('hpp')
-const xss=require('xss-clean')
 const mongoSanitize=require('express-mongo-sanitize')
-const cookieParser=require('cookie-parser')
+const xss=require('xss-clean')
 
+//const cookieParser=require('cookie-parser')
+const cors=require('cors')
+
+//DATABASE LIBRARY IMPORT
 const mongoose=require('mongoose')
+app.use(express.static('client/build'))
 
 
-//Security Middleware Implemet
+//Security Middleware Implement
 app.use(cors())
 app.use(helmet())
 app.use(mongoSanitize())
 app.use(hpp())
 app.use(xss())
-app.use(cookieParser())
+//app.use(cookieParser())
 app.use(bodyParser.json())
 
 //Request Rate Limiting
@@ -55,13 +60,9 @@ mongoose.connect(URI,OPTION,(error)=>{
 //Routing Implementation
 app.use('/api/v1',router)
 
-
-
-//UNDEFINED ROUTE
-
-app.route("*",(req,res)=>{
+//ADD REACT FRONTEND SCAFFOLD
+app.get("*",(req,res)=>{
     res.sendFile(path.resolve(__dirname,'client','build','index.html'))
 })
-
 
 module.exports=app
