@@ -3,6 +3,8 @@ import AppNavBar from "./components/Common/AppNavBar";
 import {BrowserRouter} from "react-router-dom";
 import AppRoute from "./routes/AppRoute";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const App = () => {
@@ -13,6 +15,17 @@ const App = () => {
                 <AppRoute/>
             </BrowserRouter>
 
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </>
     );
 };

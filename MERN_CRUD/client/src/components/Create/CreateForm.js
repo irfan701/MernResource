@@ -1,4 +1,5 @@
 import React, {useRef} from 'react';
+import {ErrorToast, isEmpty} from "../../helper/ValidationHelper";
 
 
 const CreateForm = () => {
@@ -13,7 +14,18 @@ const CreateForm = () => {
         let Qty = qty.value;
         let Total_Price = total_price.value;
 
-        alert(Product_Name)
+        //alert(Product_Name)
+
+        if(isEmpty(Product_Name)) ErrorToast("Product Name Required")
+        else if(isEmpty(Product_Code)) ErrorToast("Product Code Required")
+        else if(isEmpty(Img))ErrorToast("Product Image Required")
+        else if(isEmpty(Unit_Price))ErrorToast("Product Unit Price Required")
+        else if(isEmpty(Qty))ErrorToast("Product Qty Required")
+        else if(isEmpty(Total_Price))ErrorToast("Product Price Required")
+        else{
+
+        }
+
     }
 
     return (
