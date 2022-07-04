@@ -6,14 +6,14 @@ const CreateForm = () => {
     let product_name, product_code, img, unit_price, qty, total_price = useRef()
 
     const SaveData = () => {
-        let product_name = product_name.value;
-        let product_code = product_code.value;
-        let img = img.value;
-        let unit_price = unit_price.value;
-        let qty = qty.value;
-        let total_price = total_price.value;
+        let Product_Name = product_name.value;
+        let Product_Code = product_code.value;
+        let Img = img.value;
+        let Unit_Price = unit_price.value;
+        let Qty = qty.value;
+        let Total_Price = total_price.value;
 
-        console.log(product_name)
+        alert(Product_Name)
     }
 
     return (
