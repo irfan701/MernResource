@@ -5,5 +5,5 @@ const app = require("./app");
 
 
 app.listen(5000,()=>{
-    console.log("SERVER RUN SUCCESS");
+    console.log("App Run @ 5000");
 })
