@@ -39,8 +39,24 @@ export function Read() {
     })
 }
 
+export function ReadById(id) {
+    let URL = '/api/v1/ReadDataById/'+id;
+    return axios.get(URL).then((res) => {
+
+        if (res.status === 200) {
+            return res.data['data']
+        } else {
+            return false
+        }
+    }).catch((err) => {
+        console.log(err)
+        return false
+    })
+}
+
+
 export function Update(id,product_name, product_code, img, unit_price, qty, total_price) {
-    let URL = '/api/v1/UpdateData' + id
+    let URL = '/api/v1/UpdateData/' + id
     let PostBody = {
         "product_name": product_name,
         "product_code": product_code,

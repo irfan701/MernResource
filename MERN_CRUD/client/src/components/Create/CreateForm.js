@@ -1,11 +1,12 @@
 import React, {useRef} from 'react';
 import {SuccessToast, ErrorToast, isEmpty} from "../../helper/ValidationHelper";
 import {Create} from "../../api/CrudServices";
+import FullScreenLoader from "../Common/FullScreenLoader";
 
 
 const CreateForm = () => {
 
-    let product_name, product_code, img, unit_price, qty, total_price = useRef()
+    let product_name, product_code, img, unit_price, qty, total_price,Loader = useRef()
 
     const SaveData = () => {
         let Product_Name = product_name.value;
@@ -24,8 +25,9 @@ const CreateForm = () => {
         else if (isEmpty(Product_Qty)) ErrorToast("Product Qty Required")
         else if (isEmpty(Total_Price)) ErrorToast("Product Price Required")
         else {
-
+            Loader.classList.remove('d-none')
             Create(Product_Name, Product_Code, Product_Img, Unit_Price, Product_Qty, Total_Price).then(result => {
+                Loader.classList.add('d-none')
                 if (result === true) {
                     SuccessToast("Data Save Success")
                     product_name.value = '';
@@ -91,6 +93,12 @@ const CreateForm = () => {
                         <button onClick={SaveData} className="btn btn-success w-100">Save</button>
                     </div>
                 </div>
+            </div>
+
+
+
+            <div className='d-none' ref={(div) =>Loader=div}>
+                <FullScreenLoader/>
             </div>
         </>
     );

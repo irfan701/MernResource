@@ -13,7 +13,7 @@ const AppRoute = (props) => {
 
                 <Route path="/" element={<ReadPage xyz={props} key={Date.now()}/>}/>
                 <Route path="/create" element={<CreatePage/>}/>
-                <Route path="/update" element={<UpdatePage/>}/>
+                <Route path="/update/:id" element={<UpdatePage/>}/>
             </Routes>
         </>
     );

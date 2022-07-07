@@ -11,6 +11,8 @@ router.post("/CreateData",ProductController.CreateProduct)
 //R=READ
 router.get('/ReadData',ProductController.ReadProduct)
 
+//R=READ BY ID
+router.get('/ReadDataById/:id',ProductController.ReadProductById)
 
 //U=UPDATE
 router.post('/UpdateData/:id',ProductController.UpdateProduct)

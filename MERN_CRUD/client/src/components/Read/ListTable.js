@@ -1,22 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {Delete, Read} from "../../api/CrudServices";
 import {SuccessToast, ErrorToast, isEmpty} from "../../helper/ValidationHelper";
+import {useNavigate} from "react-router-dom";
+import FullScreenLoader from "../Common/FullScreenLoader";
 
 
 const ListTable = () => {
 
     let [dataList, setDataList] = useState([]);
 
-    const cdm=()=>{
+    const cdm = () => {
         Read().then(result => {
             setDataList(result)
         })
     }
 
     useEffect(() => {
-      cdm()
+        cdm()
     }, [])
-
 
 
     const DeleteItem = (id) => {
@@ -30,10 +31,9 @@ const ListTable = () => {
             }
         })
     }
-
-    const UpdateItem = () => {
-
-
+    let navigate = useNavigate()
+    const UpdateItem = (id) => {
+        navigate('/update/' + id)
     }
 
 
@@ -51,7 +51,7 @@ const ListTable = () => {
                 <td>{item.qty}</td>
                 <td>{item.total_price}</td>
                 <td>
-                    <button onClick={UpdateItem} className="btn btn-primary mx-1">Update</button>
+                    <button onClick={UpdateItem.bind(this, item._id)} className="btn btn-primary mx-1">Update</button>
                 </td>
                 <td>
                     <button onClick={DeleteItem.bind(this, item._id)} className="btn btn-danger mx-1">Delete</button>
@@ -88,7 +88,7 @@ const ListTable = () => {
         );
     } else {
         return <div>
-
+            <FullScreenLoader/>
         </div>
     }
 };
