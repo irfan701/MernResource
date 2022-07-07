@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
-import {SuccessToast,ErrorToast, isEmpty} from "../../helper/ValidationHelper";
+import {SuccessToast, ErrorToast, isEmpty} from "../../helper/ValidationHelper";
 import {Create} from "../../api/CrudServices";
-
 
 
 const CreateForm = () => {
@@ -18,21 +17,29 @@ const CreateForm = () => {
 
         //alert(Product_Name)
 
-        if(isEmpty(Product_Name)) ErrorToast("Product Name Required")
-        else if(isEmpty(Product_Code)) ErrorToast("Product Code Required")
-        else if(isEmpty(Product_Img))ErrorToast("Product Image Required")
-        else if(isEmpty(Unit_Price))ErrorToast("Product Unit Price Required")
-        else if(isEmpty(Product_Qty))ErrorToast("Product Qty Required")
-        else if(isEmpty(Total_Price))ErrorToast("Product Price Required")
-        else{
+        if (isEmpty(Product_Name)) ErrorToast("Product Name Required")
+        else if (isEmpty(Product_Code)) ErrorToast("Product Code Required")
+        else if (isEmpty(Product_Img)) ErrorToast("Product Image Required")
+        else if (isEmpty(Unit_Price)) ErrorToast("Product Unit Price Required")
+        else if (isEmpty(Product_Qty)) ErrorToast("Product Qty Required")
+        else if (isEmpty(Total_Price)) ErrorToast("Product Price Required")
+        else {
 
-            Create(Product_Name, Product_Code, Product_Img, Unit_Price, Product_Qty, Total_Price).then (result =>{
-                    if(result===true){
-                       SuccessToast("Data Save Success")
-                    }else{
-                        ErrorToast("Request Failed Try Again!")
-                    }
-                })
+            Create(Product_Name, Product_Code, Product_Img, Unit_Price, Product_Qty, Total_Price).then(result => {
+                if (result === true) {
+                    SuccessToast("Data Save Success")
+                    product_name.value = '';
+                    product_code.value = '';
+                    img.value = '';
+                    unit_price.value = '';
+                    qty.value = '';
+                    total_price.value = '';
+
+
+                } else {
+                    ErrorToast("Request Failed Try Again!")
+                }
+            })
         }
 
     }

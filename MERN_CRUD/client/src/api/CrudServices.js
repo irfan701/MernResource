@@ -64,7 +64,7 @@ export function Update(id,product_name, product_code, img, unit_price, qty, tota
 }
 
 export function Delete(id) {
-    let URL = '/api/v1/DeleteData' + id
+    let URL = '/api/v1/DeleteData/'+id
     return axios.get(URL).then((res) => {
         if (res.status === 200) {
             return true

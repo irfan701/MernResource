@@ -1,0 +1,43 @@
+cancelCourse(){
+  this.refs.fieldName.value="";
+  this.refs.fieldorg.value="";
+  this.refs.fieldNum.value="";
+}
+
+
+cancelCourse = () => { 
+  document.getElementById("create-course-form").reset();
+}
+
+render() {
+  return (
+    <form id="create-course-form">
+      <input />
+      <input />
+      ...
+      <input />
+    </form>
+  );
+}
+
+
+cancelCourse = () => { 
+  this.myFormRef.reset();
+}
+
+render() {
+  return (
+    <form ref={(el) => this.myFormRef = el;}>
+      <input />
+      <input />
+      ...
+      <input />
+    </form>
+  );
+}
+
+ event.target.reset()
+  this.refs.form.reset();
+
+
+https://stackoverflow.com/questions/43922508/clear-and-reset-form-input-fields

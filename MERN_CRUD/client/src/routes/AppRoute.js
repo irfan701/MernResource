@@ -3,15 +3,15 @@ import {Routes, Route} from "react-router-dom";
 import CreatePage from "../pages/CreatePage";
 import ReadPage from "../pages/ReadPage";
 import UpdatePage from "../pages/UpdatePage";
-import HomePage from "../pages/HomePage";
 
-const AppRoute = () => {
+
+const AppRoute = (props) => {
 
     return (
         <>
             <Routes>
-                {/*<Route path="/" element={<HomePage/>}/>*/}
-                <Route path="/" element={<ReadPage/>}/>
+
+                <Route path="/" element={<ReadPage xyz={props} key={Date.now()}/>}/>
                 <Route path="/create" element={<CreatePage/>}/>
                 <Route path="/update" element={<UpdatePage/>}/>
             </Routes>
