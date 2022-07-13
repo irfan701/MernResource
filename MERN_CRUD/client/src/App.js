@@ -2,7 +2,12 @@ import React from 'react';
 import AppNavBar from "./components/Common/AppNavBar";
 import {BrowserRouter} from "react-router-dom";
 import AppRoute from "./routes/AppRoute";
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../src/assets/css/style.css'
+import '../src/assets/css/bootstrap.css';
+import '../src/assets/css/animate.min.css'
+import '../src/assets/css/fontawesome.css'
+
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

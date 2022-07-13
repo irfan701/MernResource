@@ -17,9 +17,7 @@ exports.CreateProduct=(req,res)=>{
 
 
 exports.ReadProduct=(req,res)=>{
-    let Query={}
-    let Projection="product_name product_code img unit_price qty total_price"
-    ProductModel.find(Query,Projection,(err,data)=>{
+    ProductModel.find((err,data)=>{
         if (err){
             res.status(400).json({status:"fail",data:err})
         }else{
@@ -35,8 +33,7 @@ exports.ReadProductById=(req,res)=>{
     let id=req.params.id;
     let Query={_id:id};
 
-    let Projection="product_name product_code img unit_price qty total_price"
-    ProductModel.find(Query,Projection,(err,data)=>{
+    ProductModel.find(Query,(err,data)=>{
         if (err){
             res.status(400).json({status:"fail",data:err})
         }else{

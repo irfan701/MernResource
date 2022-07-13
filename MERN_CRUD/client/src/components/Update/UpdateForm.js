@@ -1,17 +1,27 @@
 import React, {useEffect, useRef} from 'react';
 import FullScreenLoader from "../Common/FullScreenLoader";
 import {ErrorToast, isEmpty, SuccessToast} from "../../helper/ValidationHelper";
-import {Create,ReadById} from "../../api/CrudServices";
+import {ReadById, Update} from "../../api/CrudServices";
+import {useNavigate} from "react-router-dom";
 
 
 const UpdateForm = (props) => {
 
 
     let product_name, product_code, img, unit_price, qty, total_price,Loader = useRef()
+    let navigate=useNavigate()
 
     useEffect(()=>{
         ReadById(props.id).then((result)=>{
-            alert(JSON.stringify(result))
+            //alert(JSON.stringify(result))
+
+            product_name.value=result[0]['product_name'];
+            product_code.value=result[0]['product_code'];
+            img.value=result[0]['img'];
+            unit_price.value=result[0]['unit_price'];
+            qty.value=result[0]['qty'];
+            total_price.value=result[0]['total_price'];
+
         })
     });
 
@@ -34,10 +44,10 @@ const UpdateForm = (props) => {
         else if (isEmpty(Total_Price)) ErrorToast("Product Price Required")
         else {
             Loader.classList.remove('d-none')
-            Create(Product_Name, Product_Code, Product_Img, Unit_Price, Product_Qty, Total_Price).then(result => {
+            Update(props.id,Product_Name, Product_Code, Product_Img, Unit_Price, Product_Qty, Total_Price).then(result => {
                 Loader.classList.add('d-none')
                 if (result === true) {
-                    SuccessToast("Data Save Success")
+                    SuccessToast("Data Update Success")
                     product_name.value = '';
                     product_code.value = '';
                     img.value = '';
@@ -45,6 +55,8 @@ const UpdateForm = (props) => {
                     qty.value = '';
                     total_price.value = '';
 
+
+                    navigate('/')
 
                 } else {
                     ErrorToast("Request Failed Try Again!")
@@ -99,7 +111,7 @@ const UpdateForm = (props) => {
             <br/>
             <div className="row">
                 <div className="col-md-4 p-2">
-                    <button onClick={UpdateData} className="btn btn-success w-100">Save</button>
+                    <button onClick={UpdateData} className="btn btn-outline-success w-100">Update</button>
                 </div>
             </div>
         </div>

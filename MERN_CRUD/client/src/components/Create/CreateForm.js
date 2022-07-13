@@ -2,11 +2,14 @@ import React, {useRef} from 'react';
 import {SuccessToast, ErrorToast, isEmpty} from "../../helper/ValidationHelper";
 import {Create} from "../../api/CrudServices";
 import FullScreenLoader from "../Common/FullScreenLoader";
+import {useNavigate} from "react-router-dom";
 
 
 const CreateForm = () => {
 
-    let product_name, product_code, img, unit_price, qty, total_price,Loader = useRef()
+
+    let product_name, product_code, img, unit_price, qty, total_price, Loader = useRef()
+    let navigate = useNavigate()
 
     const SaveData = () => {
         let Product_Name = product_name.value;
@@ -36,7 +39,7 @@ const CreateForm = () => {
                     unit_price.value = '';
                     qty.value = '';
                     total_price.value = '';
-
+                    navigate('/')
 
                 } else {
                     ErrorToast("Request Failed Try Again!")
@@ -49,55 +52,63 @@ const CreateForm = () => {
     return (
         <>
             <div className="container">
-                <div className="row">
+                <div className="row justify-content-center">
+                    <div className="col-md-10">
+                    <div className="card">
+                        <div className="card-header pb-0">
+                            <h4 className="animated fadeInUp">Create Product</h4>
+                        </div>
+                        <div className="card-body">
+                            <div className="col-md-4 p-2">
+                                <label className="animated fadeInUp">Product Name</label>
+                                <input type="text" ref={(input) => product_name = input}
+                                       className="form-control form-control-sm animated fadeInUp"/>
+                            </div>
 
-                    <div className="col-md-4 p-2">
-                        <label>Product Name</label>
-                        <input type="text" ref={(input) => product_name = input}
-                               className="form-control form-control-sm"/>
+                            <div className="col-md-4 p-2">
+                                <label className='animated fadeInUp'>Product Code</label>
+                                <input type="text" ref={(input) => product_code = input}
+                                       className="form-control form-control-sm animated fadeInUp"/>
+                            </div>
+
+                            <div className="col-md-4 p-2">
+                                <label className='animated fadeInUp'>IMG</label>
+                                <input type="text" ref={(input) => img = input}
+                                       className="form-control form-control-sm animated fadeInUp"/>
+                            </div>
+
+                            <div className="col-md-4 p-2">
+                                <label className='animated fadeInUp'>Unit Price</label>
+                                <input type="text" ref={(input) => unit_price = input}
+                                       className="form-control form-control-sm animated fadeInUp"/>
+                            </div>
+
+                            <div className="col-md-4 p-2">
+                                <label className='animated fadeInUp'>Qty</label>
+                                <input type="text" ref={(input) => qty = input}
+                                       className="form-control form-control-sm animated fadeInUp"/>
+                            </div>
+
+                            <div className="col-md-4 p-2">
+                                <label className='animated fadeInUp'>Total Price</label>
+                                <input type="text" ref={(input) => total_price = input}
+                                       className="form-control form-control-sm animated fadeInUp"/>
+                            </div>
+
+                        </div>
                     </div>
-
-                    <div className="col-md-4 p-2">
-                        <label>Product Code</label>
-                        <input type="text" ref={(input) => product_code = input}
-                               className="form-control form-control-sm"/>
-                    </div>
-
-                    <div className="col-md-4 p-2">
-                        <label>IMG</label>
-                        <input type="text" ref={(input) => img = input} className="form-control form-control-sm"/>
-                    </div>
-
-                    <div className="col-md-4 p-2">
-                        <label>Unit Price</label>
-                        <input type="text" ref={(input) => unit_price = input}
-                               className="form-control form-control-sm"/>
-                    </div>
-
-                    <div className="col-md-4 p-2">
-                        <label>Qty</label>
-                        <input type="text" ref={(input) => qty = input} className="form-control form-control-sm"/>
-                    </div>
-
-                    <div className="col-md-4 p-2">
-                        <label>Total Price</label>
-                        <input type="text" ref={(input) => total_price = input}
-                               className="form-control form-control-sm"/>
-                    </div>
-
-
+                </div>
                 </div>
                 <br/>
                 <div className="row">
                     <div className="col-md-4 p-2">
-                        <button onClick={SaveData} className="btn btn-success w-100">Save</button>
+                        <button onClick={SaveData} className="btn btn-success w-100 animated fadeInUp">Save</button>
                     </div>
                 </div>
             </div>
 
 
-
-            <div className='d-none' ref={(div) =>Loader=div}>
+            <div className='d-none' ref={(div) => Loader = div}>
                 <FullScreenLoader/>
             </div>
         </>

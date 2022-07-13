@@ -19,14 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a5f373-0441-4be1-8dda-f867666b6119" name="Default Changelist" comment="" />
+    <list default="true" id="5146767f-7c1d-4fe4-8fc6-7da0a93e51dc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ComposerSettings">
-    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -36,9 +33,9 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="2BNiXBCIoqLdW2DgTMz803m6lAt" />
+  <component name="ProjectId" id="2Bsbei1iWAkDw0j4DCKrTBHNxTT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,14 +46,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/assets/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/css" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Irfan\Desktop\Express-js-tutorial-bangla\MERN_CRUD\client\src\assets\css" />
-      <recent name="C:\Users\Irfan\Desktop\Express-js-tutorial-bangla\MERN_CRUD\client\src\assets\img" />
-      <recent name="C:\Users\Irfan\Desktop\Express-js-tutorial-bangla\MERN_CRUD\client\src\components\Common" />
+      <recent name="C:\Users\Irfan\Desktop\Express-js-tutorial-bangla\React_Redux_Study\my-app\src\assets\css" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -64,20 +59,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="13a5f373-0441-4be1-8dda-f867666b6119" name="Default Changelist" comment="" />
-      <created>1656752981405</created>
+      <changelist id="5146767f-7c1d-4fe4-8fc6-7da0a93e51dc" name="Default Changelist" comment="" />
+      <created>1657697837905</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1656752981405</updated>
-      <workItem from="1656752985701" duration="6413000" />
-      <workItem from="1656785900922" duration="7448000" />
-      <workItem from="1656874636794" duration="7042000" />
-      <workItem from="1656923721083" duration="1632000" />
-      <workItem from="1656945440885" duration="490000" />
-      <workItem from="1657026881858" duration="1229000" />
-      <workItem from="1657097120719" duration="10034000" />
-      <workItem from="1657136886517" duration="6716000" />
-      <workItem from="1657177873359" duration="8459000" />
+      <updated>1657697837905</updated>
+      <workItem from="1657697846042" duration="4081000" />
     </task>
     <servers />
   </component>
@@ -94,16 +81,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="413" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1656884998362">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="413" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1656884998362" />
-    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1657103265619">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1657103265619" />
   </component>
 </project>
