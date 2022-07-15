@@ -13,8 +13,8 @@ const TodoPage = () => {
 
                             </div>
                             <div className="card-body">
-<CreateTodo/>
-<TodoList/>
+                                <CreateTodo/>
+                                <TodoList/>
                             </div>
                         </div>
                     </div>

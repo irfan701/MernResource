@@ -8,6 +8,7 @@ export const todoSlice = createSlice({
     },
     reducers: {
         AddTodo: (state, action) => {
+           // debugger
             state.value.push(action.payload)
         },
         RemoveTodo: (state, action) => {
