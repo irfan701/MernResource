@@ -1,0 +1,24 @@
+1.Data Model
+
+=>Task Data
+
+title,description,email,status,created_at
+
+=>User Data
+
+email,first_name,last_name,mobile,password,photo,status,created_at
+
+
+=>Forget Pass:
+
+body-parser
+cors
+hpp
+helmet
+xss-clean
+express-mongo-sanitize
+express-rate-limit
+mongoose
+nodemon
+dot env
+jsonwebtoken
