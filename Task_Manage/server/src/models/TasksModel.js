@@ -9,5 +9,5 @@ const DataSchema=mongoose.Schema({
 
 },{versionKey:false})
 
-const UsersModel=mongoose.model('tasks',DataSchema)
-module.exports=UsersModel
+const TasksModel=mongoose.model('tasks',DataSchema)
+module.exports=TasksModel
