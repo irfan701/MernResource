@@ -40,9 +40,9 @@ exports.login = (req, res) => {
 }
 
 exports.profileUpdate=(req,res)=>{
-    let email=req.headers['email']
+    let email=req.headers['email'] //Auth verify er time e je token decode hossey,oikane email ti header e set korey dice,oikan tekey email ti passe
     let reqBody=req.body
-
+                            //query
     UsersModel.updateOne({email:email},reqBody,(err,data)=>{
         if (err) {
             res.status(400).json({status: "Fail", data: err})
