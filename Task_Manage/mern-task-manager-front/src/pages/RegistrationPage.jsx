@@ -1,10 +1,14 @@
-import React from 'react';
-import MasterLayout from "../components/masterLayout/MasterLayout";
+import React, {lazy, Suspense} from 'react';
+import LazyLoader from "../components/masterLayout/LazyLoader";
+const Registration=lazy(()=>import('../components/Registration/Registration'))
+
 
 const RegistrationPage = () => {
     return (
         <>
-
+            <Suspense fallback={<LazyLoader/>}>
+                <Registration/>
+            </Suspense>
         </>
     );
 };

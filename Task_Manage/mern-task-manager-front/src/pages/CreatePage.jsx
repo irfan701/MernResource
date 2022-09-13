@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import MasterLayout from "../components/masterLayout/MasterLayout";
+import LazyLoader from "../components/masterLayout/LazyLoader";
+const Create=lazy(()=>import('../components/Create/Create'))
 
 const CreatePage = () => {
     return (
         <>
             <MasterLayout>
-                <h2>Create Page</h2>
+                <Suspense fallback={<LazyLoader/>}>
+                    <Create/>
+                </Suspense>
             </MasterLayout>
         </>
     );

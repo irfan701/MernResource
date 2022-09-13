@@ -22,3 +22,23 @@ mongoose
 nodemon
 dot env
 jsonwebtoken
+
+react lazy suspense
+
+bundle ti onek boro hoye jai,application er performace kico komey jai
+chunk file gole spilt korar jonno package ti use kore
+
+React Performance er jonno
+
+production level e giye spliting hoye small small js file e convert hoi moto
+
+fallback=chunk file gole time consuming hossey ....
+
+
+
+production level e giye ,js file gole split hoye jai er jonno lazy and suspense use korbo
+
+fallback=chunk file gole time consuming hossey ....
+
+
+
