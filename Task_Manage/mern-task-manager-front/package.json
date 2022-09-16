@@ -5,6 +5,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
+    "cogo-toast": "^4.2.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",

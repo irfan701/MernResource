@@ -8,8 +8,8 @@ const App = () => {
         <>
        <BrowserRouter>
             <AppRoute/>
-            <FullscreenLoader/>
        </BrowserRouter>
+         <FullscreenLoader/>
         </>
     );
 };
