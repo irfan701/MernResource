@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Routes, Route} from "react-router-dom";
 import ProfilePage from "../pages/ProfilePage";
 import DashboardPage from "../pages/DashboardPage";
@@ -11,10 +11,11 @@ import LoginPage from "../pages/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage";
 import Page404 from "../pages/Page404";
 import ForgetPassPage from "../pages/ForgetPassPage";
+import {getToken} from "../helper/SessionHelper";
+import {Navigate} from "react-router";
 
-
-class AppRoute extends Component {
-    render() {
+const AppRoute = () => {
+    if (getToken()){
         return (
             <>
                 <Routes>
@@ -33,7 +34,21 @@ class AppRoute extends Component {
 
             </>
         );
+    }else{
+        return (
+            <>
+                <Routes>
+                    <Route path="/" element={<Navigate to="/login" replace/>}/>
+                    <Route path="/login" element={<LoginPage/>}/>
+                    <Route path="/registration" element={<RegistrationPage/>}/>
+                    <Route path="/forget-pass" element={<ForgetPassPage/>}/>
+                    <Route path="*" element={<Page404/>}/>
+                </Routes>
+
+            </>
+        );
     }
-}
+
+};
 
 export default AppRoute;
