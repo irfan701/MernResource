@@ -1,6 +1,8 @@
 import React, {useRef} from 'react';
 import {Container, Row} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
+import {ErrorToast, IsEmpty} from "../../helper/FormHelper";
+import {NewTaskRequest} from "../../APIRequest/APIRequest";
 
 const Create = () => {
     let titleRef,descriptionRef=useRef();
@@ -9,6 +11,16 @@ const Create = () => {
     const CreateNew = () => {
         let title=titleRef.value;
         let description=descriptionRef.value;
+
+        if(IsEmpty(title))ErrorToast('Title Is Required')
+        else if(IsEmpty(description))ErrorToast('Description Is Required')
+        else{
+            NewTaskRequest(title,description).then((result)=>{
+                if (result===true){
+                    navigate("/all")
+                }
+            })
+        }
 
         }
 
