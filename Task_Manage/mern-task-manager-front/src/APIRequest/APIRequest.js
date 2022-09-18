@@ -3,6 +3,7 @@ import {ErrorToast, SuccessToast} from "../helper/FormHelper";
 import store from "../redux/store/store";
 import {HideLoader, ShowLoader} from "../redux/state-slice/settings-slice";
 import {getToken, setToken, setUserDetails} from "../helper/SessionHelper";
+import {SetCanceledTask, SetCompletedTask, SetNewTask, SetProgressTask} from "../redux/state-slice/task-slice";
 
 const BaseUrl="https://mern-task-manager-irfan.herokuapp.com/api/v1";
 
@@ -30,6 +31,33 @@ export function  NewTaskRequest(title,description) {
     })
 
 }
+
+
+export function  TaskListByStatus(Status) {
+    store.dispatch(ShowLoader())
+    let URL=BaseUrl+"/listTaskByStatus/"+Status
+
+    return axios.get(URL,AxiosHeader).then(res=>{
+        store.dispatch(HideLoader())
+        if (res.status===200){
+            if(Status==='new')              store.dispatch(SetNewTask(res.data['data']))
+            else if (Status==='completed')  store.dispatch(SetCompletedTask(res.data['data']))
+            else if (Status==='canceled')   store.dispatch(SetCanceledTask(res.data['data']))
+            else if (Status==='progress')   store.dispatch(SetProgressTask(res.data['data']))
+
+        }else{
+            ErrorToast('Something Went Wrong !')
+            return false
+        }
+    }).catch(err=>{
+        store.dispatch(HideLoader())
+        ErrorToast("Something Went Wrong !");
+        return false;
+    })
+
+}
+
+
 
 
 export function RegistrationRequest(email,firstName,lastName,mobile,password,photo) {

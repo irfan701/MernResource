@@ -1,9 +1,17 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import {Container} from "react-bootstrap";
 import {AiOutlineCalendar, AiOutlineDelete} from "react-icons/all";
 import {AiOutlineEdit} from "react-icons/ai";
+import {TaskListByStatus} from "../../APIRequest/APIRequest";
+import {useSelector} from "react-redux";
 
 const New = () => {
+
+    useEffect(()=>{
+        TaskListByStatus('new')
+    },[])
+
+    const NewList=useSelector((state) => state.task.New)
     return (
         <Fragment>
             <Container fluid={true} className="content-body">
@@ -23,20 +31,27 @@ const New = () => {
                     </div>
                 </div>
                 <div className="row p-0 m-0">
-                    <div className="col-12 col-lg-4 col-sm-6 col-md-4  p-2">
-                        <div className="card h-100">
-                            <div className="card-body">
-                                <h6 className="animated fadeInUp">item.title</h6>
-                                <p className="animated fadeInUp">item.description</p>
-                                <p className="m-0 animated fadeInUp p-0">
-                                    <AiOutlineCalendar/> item.createdDate
-                                    <a onClick=''  className="icon-nav text-primary mx-1"><AiOutlineEdit /></a>
-                                    <a onClick='' className="icon-nav text-danger mx-1"><AiOutlineDelete /></a>
-                                    <a className="badge float-end bg-info">item.status</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+
+                    {
+                        NewList.map((item,i)=>
+                                <div key={i.toString()} className="col-12 col-lg-4 col-sm-6 col-md-4  p-2">
+                                    <div className="card h-100">
+                                        <div className="card-body">
+                                            <h6 className="animated fadeInUp">{item.title}</h6>
+                                            <p className="animated fadeInUp">{item.description}</p>
+                                            <p className="m-0 animated fadeInUp p-0">
+                                                <AiOutlineCalendar/> {item.created_at}
+                                                <a onClick='' className="icon-nav text-primary mx-1"><AiOutlineEdit/></a>
+                                                <a onClick='' className="icon-nav text-danger mx-1"><AiOutlineDelete/></a>
+                                                <a className="badge float-end bg-info">{item.status}</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                        )
+                    }
+
+
                 </div>
             </Container>
         </Fragment>
