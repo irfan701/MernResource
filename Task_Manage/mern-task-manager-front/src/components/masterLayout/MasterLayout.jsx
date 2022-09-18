@@ -12,7 +12,7 @@ const MasterLayout = (props) => {
     let contentRef,sideNavRef=useRef();
 
     const onLogout=()=>{
-
+            removeSessions()
     }
 
     const MenuBarClickHandler = () => {
