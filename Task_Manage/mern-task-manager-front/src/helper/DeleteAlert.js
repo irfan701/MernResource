@@ -15,6 +15,8 @@ export function DeleteToDO(id){
             return  DeleteRequest(id).then((deleteResult)=>{
                 return deleteResult
             })
+
+
         }
     })
 

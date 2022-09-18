@@ -4,6 +4,7 @@ import {AiOutlineCalendar, AiOutlineDelete} from "react-icons/all";
 import {AiOutlineEdit} from "react-icons/ai";
 import {TaskListByStatus} from "../../APIRequest/APIRequest";
 import {useSelector} from "react-redux";
+import {DeleteToDO} from "../../helper/DeleteAlert";
 
 const Canceled = () => {
 
@@ -12,6 +13,13 @@ const Canceled = () => {
     },[])
 
     const CanceledList=useSelector((state) => state.task.Canceled)
+    const DeleteItem=(id)=>{
+        DeleteToDO(id).then((res)=>{
+            if(res===true){
+                TaskListByStatus('canceled')
+            }
+        })
+    }
 
     return (
         <Fragment>
@@ -41,7 +49,7 @@ const Canceled = () => {
                                 <p className="m-0 animated fadeInUp p-0">
                                     <AiOutlineCalendar/> {item.created_at}
                                     <a onClick=''  className="icon-nav text-primary mx-1"><AiOutlineEdit /></a>
-                                    <a onClick='' className="icon-nav text-danger mx-1"><AiOutlineDelete /></a>
+                                    <a onClick={()=>DeleteItem(item._id)} className="icon-nav text-danger mx-1"><AiOutlineDelete /></a>
                                     <a className="badge float-end bg-danger">{item.status}</a>
                                 </p>
                             </div>

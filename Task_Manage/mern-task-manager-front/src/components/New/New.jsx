@@ -4,6 +4,7 @@ import {AiOutlineCalendar, AiOutlineDelete} from "react-icons/all";
 import {AiOutlineEdit} from "react-icons/ai";
 import {TaskListByStatus} from "../../APIRequest/APIRequest";
 import {useSelector} from "react-redux";
+import {DeleteToDO} from "../../helper/DeleteAlert";
 
 const New = () => {
 
@@ -12,6 +13,15 @@ const New = () => {
     },[])
 
     const NewList=useSelector((state) => state.task.New)
+
+    const DeleteItem=(id)=>{
+        DeleteToDO(id).then((res)=>{
+            if(res===true){
+                TaskListByStatus('new')
+            }
+        })
+    }
+
     return (
         <Fragment>
             <Container fluid={true} className="content-body">
@@ -34,24 +44,23 @@ const New = () => {
 
                     {
                         NewList.map((item,i)=>
-                                <div key={i.toString()} className="col-12 col-lg-4 col-sm-6 col-md-4  p-2">
-                                    <div className="card h-100">
-                                        <div className="card-body">
+
+                            <div key={i.toString()} className="col-12 col-lg-4 col-sm-6 col-md-4  p-2">
+                                <div className="card h-100">
+                                   <div className="card-body">
                                             <h6 className="animated fadeInUp">{item.title}</h6>
                                             <p className="animated fadeInUp">{item.description}</p>
                                             <p className="m-0 animated fadeInUp p-0">
                                                 <AiOutlineCalendar/> {item.created_at}
                                                 <a onClick='' className="icon-nav text-primary mx-1"><AiOutlineEdit/></a>
-                                                <a onClick='' className="icon-nav text-danger mx-1"><AiOutlineDelete/></a>
+                                                <a onClick={()=>DeleteItem(item._id)} className="icon-nav text-danger mx-1"><AiOutlineDelete/></a>
                                                 <a className="badge float-end bg-info">{item.status}</a>
                                             </p>
-                                        </div>
                                     </div>
-                                </div>
+                                 </div>
+                             </div>
                         )
                     }
-
-
                 </div>
             </Container>
         </Fragment>
