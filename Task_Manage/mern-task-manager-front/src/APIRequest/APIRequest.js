@@ -4,6 +4,7 @@ import store from "../redux/store/store";
 import {HideLoader, ShowLoader} from "../redux/state-slice/settings-slice";
 import {getToken, setToken, setUserDetails} from "../helper/SessionHelper";
 import {SetCanceledTask, SetCompletedTask, SetNewTask, SetProgressTask} from "../redux/state-slice/task-slice";
+import {SetSummary} from "../redux/state-slice/summary-slice";
 
 const BaseUrl="https://mern-task-manager-irfan.herokuapp.com/api/v1";
 
@@ -56,6 +57,27 @@ export function  TaskListByStatus(Status) {
     })
 
 }
+
+
+export function SummaryRequest() {
+    store.dispatch(ShowLoader())
+    let URL=BaseUrl+"/taskStatusCount"
+
+    return axios.get(URL,AxiosHeader).then(res=>{
+        store.dispatch(HideLoader())
+        if (res.status===200){
+            store.dispatch(SetSummary(res.data['data']))
+
+        }else{
+            ErrorToast('Something Went Wrong !')
+        }
+    }).catch(err=>{
+        store.dispatch(HideLoader())
+        ErrorToast("Something Went Wrong !");
+    })
+
+}
+
 
 
 
