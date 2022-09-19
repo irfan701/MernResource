@@ -32,8 +32,6 @@ class FormHelper {
             reader.onerror = (error) => reject(error);
         });
     }
-
-
 }
 
 export const {
